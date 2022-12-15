@@ -7,7 +7,7 @@
 using namespace std;
 
 template <typename F>
-static int CountOverlap(const F& contains)
+static int CountOverlap(const F&& contains)
 {
     ifstream file("input-day4.txt");
     if (!file.is_open())
@@ -43,22 +43,19 @@ static int CountOverlap(const F& contains)
 
 int Day4::CountOverlaps()
 {
-    auto contains = [](const tuple<int, int>& a, const tuple<int, int>& b) -> bool
-    {
-        return get<0>(a) <= get<0>(b) && get<1>(a) >= get<1>(b);
-    };
-
-    return CountOverlap(contains);
+    return CountOverlap(
+        [](const tuple<int, int>& a, const tuple<int, int>& b) -> bool
+        {
+            return get<0>(a) <= get<0>(b) && get<1>(a) >= get<1>(b);
+        });
 }
 
 
 int Day4::CountPartialOverlaps()
 {
-    auto contains = [](const tuple<int, int>& a, const tuple<int, int>& b) -> bool
-    {
-        return (get<0>(a) <= get<0>(b) && get<1>(a) >= get<0>(b)) ||
-            (get<0>(b) <= get<0>(a) && get<1>(b) >= get<0>(a));
-    };
-
-    return CountOverlap(contains);
+    return CountOverlap([](const tuple<int, int>& a, const tuple<int, int>& b) -> bool
+        {
+            return (get<0>(a) <= get<0>(b) && get<1>(a) >= get<0>(b)) ||
+                (get<0>(b) <= get<0>(a) && get<1>(b) >= get<0>(a));
+        });
 }
