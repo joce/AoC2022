@@ -3,6 +3,7 @@
 #include "Day1.h"
 #include "Day2.h"
 #include "Day3.h"
+#include "Day4.h"
 
 using namespace std;
 
@@ -14,8 +15,11 @@ int main()
     //cout << "Day 02 - 1: " << Day2::ComputeScore() << endl;
     //cout << "Day 02 - 2: " << Day2::ComputeScore2() << endl;
 
-    //cout << "Day 03 - 1: " << Day3::CheckRucksack() << endl;
-    cout << "Day 03 - 2: " << Day3::CheckBadges() << endl;
+    //cout << "Day 03 - 1: " << Day3::CheckRucksack() << endl; 
+    //cout << "Day 03 - 2: " << Day3::CheckBadges() << endl;
+
+    cout << "Day 04 - 1: " << Day4::CountOverlaps() << endl;
+    cout << "Day 04 - 2: " << Day4::CountPartialOverlaps() << endl;
     return 0;
 }
 

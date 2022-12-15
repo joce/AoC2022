@@ -2,7 +2,7 @@
 
 namespace Day1
 {
-    int GetCalories();
+    int GetTopCalories();
     int GetTop3Calories();
 }
 
