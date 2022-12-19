@@ -20,8 +20,8 @@ int Day3::CheckRucksack()
     {
         int64_t items_1 = 0; // used as bitfield for compartment 1
         int64_t items_2 = 0; // used as bitfield for compartment 2
-        const int compartmentSize = line.length() / 2;
-        for (int i = 0, j = compartmentSize; i < compartmentSize; i++, j++)
+        const auto compartmentSize = line.length() / 2;
+        for (auto i = size_t(0), j = compartmentSize; i < compartmentSize; i++, j++)
         {
             unsigned compt1 = line[i];
             unsigned compt2 = line[j];
@@ -60,7 +60,7 @@ int Day3::CheckBadges()
     while (getline(file, line))
     {
         int64_t allItems = 0; // used as bitfield for compartment 1
-        const int sackSize = line.length();
+        const auto sackSize = line.length();
         for (int i = 0; i < sackSize; i++)
         {
             const unsigned item = line[i];
@@ -72,7 +72,7 @@ int Day3::CheckBadges()
             int64_t lineItems = 0;
             string line2;
             getline(file, line2);
-            const int sackSize = line2.length();
+            const auto sackSize = line2.length();
             for (int i = 0; i < sackSize; i++)
             {
                 const unsigned item = line2[i];
