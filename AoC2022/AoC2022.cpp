@@ -5,6 +5,7 @@
 #include "Day3.h"
 #include "Day4.h"
 #include "Day5.h"
+#include "Day6.h"
 
 using namespace std;
 
@@ -23,8 +24,10 @@ int main()
     //cout << "Day 04 - 2: " << Day4::CountPartialOverlaps() << endl;
 
     //cout << "Day 05 - 1: " << Day5::ProcessStacks() << endl;
-    cout << "Day 05 - 2: " << Day5::ProcessStacks2() << endl;
+    //cout << "Day 05 - 2: " << Day5::ProcessStacks2() << endl;
 
+    //cout << "Day 06 - 1: " << Day6::FindStartOfPacket() << endl;
+    cout << "Day 06 - 2: " << Day6::FindStartOfMessage() << endl;
     return 0;
 }
 
