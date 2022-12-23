@@ -6,6 +6,7 @@
 #include "Day4.h"
 #include "Day5.h"
 #include "Day6.h"
+#include "Day7.h"
 
 using namespace std;
 
@@ -27,7 +28,10 @@ int main()
     //cout << "Day 05 - 2: " << Day5::ProcessStacks2() << endl;
 
     //cout << "Day 06 - 1: " << Day6::FindStartOfPacket() << endl;
-    cout << "Day 06 - 2: " << Day6::FindStartOfMessage() << endl;
+    //cout << "Day 06 - 2: " << Day6::FindStartOfMessage() << endl;
+
+    //cout << "Day 07 - 1: " << Day7::SumOfAllDirs() << endl;
+    cout << "Day 07 - 2: " << Day7::SizeOfDirToDelete() << endl;
     return 0;
 }
 
