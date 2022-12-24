@@ -2,8 +2,6 @@
 
 #include "Day5.h"
 
-#include <map>
-
 using namespace std;
 
 template <typename F>

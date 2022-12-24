@@ -2,8 +2,6 @@
 
 #include "Day4.h"
 
-#include <tuple>
-
 using namespace std;
 
 template <typename F>
@@ -30,8 +28,8 @@ static int CountOverlap(const F&& contains)
             continue;
         }
 
-        tuple<int, int> a(stoi(match[1].str()), stoi(match[2].str()));
-        tuple<int, int> b(stoi(match[3].str()), stoi(match[4].str()));
+        tuple a(stoi(match[1].str()), stoi(match[2].str()));
+        tuple b(stoi(match[3].str()), stoi(match[4].str()));
         if (contains(a, b) || contains(b, a))
         {
             contained++;
