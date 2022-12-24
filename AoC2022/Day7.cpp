@@ -77,7 +77,7 @@ class FileNode : public Node
     size_t m_Size;
 
 public:
-    FileNode(string name, size_t size, weak_ptr<DirNode> parent) :
+    FileNode(string name, size_t size, weak_ptr<DirNode>& parent) :
         Node(std::move(name), std::move(parent)),
         m_Size(size)
     {}
@@ -113,13 +113,14 @@ static shared_ptr<Node> BuildFileTree()
         auto match = smatch{};
         if (regex_match(line, match, cdRegex))
         {
-            if (match[1] == "..")
+            const string dirName = match[1];
+            if (dirName == "..")
                 currNode = cn->GetParent();
-            else if (match[1] == "/")
+            else if (dirName == "/")
                 currNode = root;
             else
             {
-                auto toDir = cn->GetNode(match[1]).lock();
+                auto toDir = cn->GetNode(dirName).lock();
                 currNode = static_pointer_cast<DirNode>(toDir);
             }
         }
