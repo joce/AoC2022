@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Data">
       <UniqueIdentifier>{13678298-9386-4e40-bbbd-f0d8573bdf97}</UniqueIdentifier>
     </Filter>
@@ -48,6 +44,9 @@
     <ClCompile Include="Day8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Day9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
@@ -77,6 +76,9 @@
     <ClInclude Include="Day8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Day9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Data\input-day1.txt">
@@ -101,6 +103,9 @@
       <Filter>Data</Filter>
     </Text>
     <Text Include="Data\input-day8.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Data\input-day9.txt">
       <Filter>Data</Filter>
     </Text>
   </ItemGroup>

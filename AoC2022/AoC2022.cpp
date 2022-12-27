@@ -8,6 +8,7 @@
 #include "Day6.h"
 #include "Day7.h"
 #include "Day8.h"
+#include "Day9.h"
 
 using namespace std;
 
@@ -35,7 +36,11 @@ int main()
     //cout << "Day 07 - 2: " << Day7::SizeOfDirToDelete() << endl;
 
     //cout << "Day 08 - 1: " << Day8::CountVisibleTrees() << endl;
-    cout << "Day 08 - 2: " << Day8::GetScenicScore() << endl;
+    //cout << "Day 08 - 2: " << Day8::GetScenicScore() << endl;
+
+    cout << "Day 09 - 1: " << Day9::CountTailPositions(2) << endl;
+    cout << "Day 09 - 2: " << Day9::CountTailPositions(10) << endl;
+
     return 0;
 }
 
