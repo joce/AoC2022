@@ -2,8 +2,6 @@
 
 #include "Day9.h"
 
-#include <functional>
-
 using namespace std;
 
 class Rope
