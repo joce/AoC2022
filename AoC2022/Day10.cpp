@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool GetTestLine(string& res)
+static bool GetTestLine(string& res)
 {
     static int cnt = 0;
     vector values = {

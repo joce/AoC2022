@@ -100,7 +100,7 @@ int Day8::GetScenicScore()
         int score = 1;
 
         int cnt = 0;
-        for (int yy = y + 1, yend = grid.size(); yy < yend; yy++)
+        for (int yy = y + 1, yend = static_cast<int>(grid.size()); yy < yend; yy++)
         {
             cnt++;
             if (val <= grid[yy][x])
@@ -120,7 +120,7 @@ int Day8::GetScenicScore()
         const auto& s = grid[y];
 
         cnt = 0;
-        for (int xx = x+1, xend = s.size(); xx < xend; xx++)
+        for (int xx = x+1, xend = static_cast<int>(s.size()); xx < xend; xx++)
         {
             cnt++;
             if (val <= grid[y][xx])
