@@ -12,6 +12,7 @@
 #include "Day10.h"
 #include "Day11.h"
 #include "Day12.h"
+#include "Day13.h"
 
 using namespace std;
 
@@ -49,9 +50,11 @@ int main()
 
     //cout << "Day 11 - 1: " << Day11::GetMonkeyBusinessLevel() << endl;
 
-    cout << "Day 12 - 1: " << Day12::GetFewestSteps() << endl;
-    cout << "Day 12 - 2: " << Day12::GetFewestStepsFromA() << endl;
+    //cout << "Day 12 - 1: " << Day12::GetFewestSteps() << endl;
+    //cout << "Day 12 - 2: " << Day12::GetFewestStepsFromA() << endl;
 
+    cout << "Day 13 - 1: " << Day13::SumOfPairIndices() << endl;
+    cout << "Day 13 - 2: " << Day13::SortAllPackets() << endl;
     return 0;
 }
 
