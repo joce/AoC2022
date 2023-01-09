@@ -27,7 +27,7 @@ public:
     const string& GetName() const { return m_name; }
 
     [[nodiscard]]
-    weak_ptr<DirNode> GetParent() const { return m_parent; }
+    shared_ptr<DirNode> GetParent() const { return m_parent.lock(); }
 };
 
 class DirNode : public Node
@@ -49,7 +49,7 @@ public:
     }
 
     [[nodiscard]]
-    weak_ptr<Node> GetNode(const string& name) const
+    shared_ptr<Node> GetNode(const string& name) const
     {
         for (const auto& child : children)
             if (child->GetName() == name)
@@ -77,7 +77,7 @@ class FileNode : public Node
     size_t m_Size;
 
 public:
-    FileNode(string name, size_t size, weak_ptr<DirNode>& parent) :
+    FileNode(string name, size_t size, weak_ptr<DirNode> parent) :
         Node(std::move(name), std::move(parent)),
         m_Size(size)
     {}
@@ -89,7 +89,7 @@ public:
 static shared_ptr<Node> BuildFileTree()
 {
     auto root = make_shared<DirNode>(string("\\"));
-    weak_ptr<DirNode> currNode;
+    shared_ptr<DirNode> currNode;
     currNode = root;
 
     ifstream file("input-day7.txt");
@@ -106,7 +106,7 @@ static shared_ptr<Node> BuildFileTree()
     string line;
     while (getline(file, line))
     {
-        auto cn = currNode.lock();
+        auto cn = currNode;
         if (!cn)
             continue;
 
@@ -120,33 +120,31 @@ static shared_ptr<Node> BuildFileTree()
                 currNode = root;
             else
             {
-                auto toDir = cn->GetNode(dirName).lock();
+                auto toDir = cn->GetNode(dirName);
                 currNode = static_pointer_cast<DirNode>(toDir);
             }
         }
         else if (regex_match(line, match, dirRegex))
             cn->AddChild(make_shared<DirNode>(match[1], currNode));
         else if (regex_match(line, match, fileRegex))
-            cn->AddChild(make_shared<FileNode>(match[2], stoi(match[1].str()), currNode));
+            cn->AddChild(make_shared<FileNode>(match[2], stoi(match[1].str()), weak_ptr(currNode)));
     }
 
     return root;
 }
 
-static void PrintTree(const weak_ptr<Node>& node, int indent)
+static void PrintTree(const shared_ptr<Node>& node, int indent)
 {
     for (int i = 0; i < indent; i++)
         cout << " ";
 
-    const auto n = node.lock();
-
-    if (const auto d = dynamic_pointer_cast<DirNode>(n))
+    if (const auto d = dynamic_pointer_cast<DirNode>(node))
     {
         cout << d->GetName() << endl;
         for (auto c : d->GetNodes())
             PrintTree(c, indent + 4);
     }
-    else if (const auto f = dynamic_pointer_cast<FileNode>(n))
+    else if (const auto f = dynamic_pointer_cast<FileNode>(node))
         cout << f->GetName() << "\t" << f->Size() << endl;
     else
         throw exception("HHHHHAAAAAAARGH!");
