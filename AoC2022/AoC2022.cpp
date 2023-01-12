@@ -13,6 +13,7 @@
 #include "Day11.h"
 #include "Day12.h"
 #include "Day13.h"
+#include "Day14.h"
 
 using namespace std;
 
@@ -53,8 +54,11 @@ int main()
     //cout << "Day 12 - 1: " << Day12::GetFewestSteps() << endl;
     //cout << "Day 12 - 2: " << Day12::GetFewestStepsFromA() << endl;
 
-    cout << "Day 13 - 1: " << Day13::SumOfPairIndices() << endl;
-    cout << "Day 13 - 2: " << Day13::SortAllPackets() << endl;
+    //cout << "Day 13 - 1: " << Day13::SumOfPairIndices() << endl;
+    //cout << "Day 13 - 2: " << Day13::SortAllPackets() << endl;
+
+    cout << "Day 14 - 1: " << Day14::CountUnitsOfSand() << endl;
+    cout << "Day 14 - 1: " << Day14::CountUnitsOfSand2() << endl;
     return 0;
 }
 

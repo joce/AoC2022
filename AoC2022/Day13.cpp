@@ -122,7 +122,7 @@ void LoadItem(string::iterator& toParse, const string::iterator& end, Item& item
             while (*toParse >= '0' && *toParse <= '9')
                 ++toParse;
             int res;
-            std::from_chars(&*start, &*toParse, res);
+            from_chars(&*start, &*toParse, res);
             if (!item.items)
                 item.items = make_shared<vector<Item>>();
             item.items->emplace_back(Item());
