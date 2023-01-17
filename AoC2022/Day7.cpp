@@ -15,8 +15,8 @@ protected:
 public:
     virtual ~Node() = default;
 
-    Node(string name, weak_ptr<DirNode> parent) :
-        m_name(std::move(name)),
+    Node(string&& name, weak_ptr<DirNode> parent) :
+        m_name(name),
         m_parent(std::move(parent))
     {}
 
@@ -35,11 +35,11 @@ class DirNode : public Node
     vector<shared_ptr<Node>> children;
 
 public:
-    DirNode(string name, weak_ptr<DirNode> parent) :
+    DirNode(string&& name, weak_ptr<DirNode> parent) :
         Node(std::move(name), std::move(parent))
     {}
 
-    DirNode(string name) :
+    DirNode(string&& name) :
         Node(std::move(name), std::weak_ptr<DirNode>())
     {}
 
@@ -77,7 +77,7 @@ class FileNode : public Node
     size_t m_Size;
 
 public:
-    FileNode(string name, size_t size, weak_ptr<DirNode> parent) :
+    FileNode(string&& name, size_t size, weak_ptr<DirNode> parent) :
         Node(std::move(name), std::move(parent)),
         m_Size(size)
     {}
