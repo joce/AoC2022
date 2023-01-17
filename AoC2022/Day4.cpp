@@ -48,7 +48,6 @@ int Day4::CountOverlaps()
         });
 }
 
-
 int Day4::CountPartialOverlaps()
 {
     return CountOverlap([](const tuple<int, int>& a, const tuple<int, int>& b) -> bool
