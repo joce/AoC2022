@@ -73,7 +73,7 @@ struct Item
             // v[0], []
             return 1;
         }
-            
+
         if (right.items)
         {
             // i, v[0]
@@ -96,7 +96,7 @@ struct Item
     }
 };
 
-void LoadItem(string::iterator& toParse, const string::iterator& end, Item& item)
+static void LoadItem(string::iterator& toParse, const string::iterator& end, Item& item)
 {
     while (toParse != end)
     {
@@ -118,7 +118,7 @@ void LoadItem(string::iterator& toParse, const string::iterator& end, Item& item
             ++toParse;
         else if (curr >= '0' && curr <= '9')
         {
-            auto start = toParse;
+            auto &start = toParse;
             while (*toParse >= '0' && *toParse <= '9')
                 ++toParse;
             int res;
@@ -172,7 +172,7 @@ static bool GetTestLine(string & ret)
     return true;
 }
 
-bool LoadItems(vector<Item>& toFill)
+static bool LoadItems(vector<Item>& toFill)
 {
     ifstream file("input-day13.txt");
     if (!file.is_open())
@@ -222,7 +222,7 @@ int Day13::SortAllPackets()
     vector<Item> res;
     if (!LoadItems(res))
         return -1;
-    
+
     res.emplace_back(-1, make_shared<vector<Item>>());
     res.back().items->emplace_back(-1, make_shared<vector<Item>>());
     res.back().items->back().items->emplace_back(2);

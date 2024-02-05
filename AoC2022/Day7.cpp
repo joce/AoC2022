@@ -106,7 +106,7 @@ static shared_ptr<Node> BuildFileTree()
     string line;
     while (getline(file, line))
     {
-        auto cn = currNode;
+        auto &cn = currNode;
         if (!cn)
             continue;
 
@@ -141,7 +141,7 @@ static void PrintTree(const shared_ptr<Node>& node, int indent)
     if (const auto d = dynamic_pointer_cast<DirNode>(node))
     {
         cout << d->GetName() << endl;
-        for (auto c : d->GetNodes())
+        for (auto &c : d->GetNodes())
             PrintTree(c, indent + 4);
     }
     else if (const auto f = dynamic_pointer_cast<FileNode>(node))
@@ -159,7 +159,7 @@ static void CalcSize(const weak_ptr<Node>& node, size_t& totalSize)
         if (const auto size = n->Size(); size <= 100000)
             totalSize += size;
 
-        for (const auto c : d->GetNodes())
+        for (const auto &c : d->GetNodes())
             CalcSize(c, totalSize);
     }
 }
@@ -178,7 +178,7 @@ static void FindSize(const weak_ptr<Node>& node, size_t toDelete, size_t& best)
         if (size < best)
             best = size;
 
-        for (const auto c : d->GetNodes())
+        for (const auto &c : d->GetNodes())
             FindSize(c, toDelete, best);
     }
 }

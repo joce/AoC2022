@@ -25,7 +25,7 @@ static bool GetTestLine(string& ret, bool reset = false)
     return true;
 }
 
-vector<vector<char>> LoadMap()
+static vector<vector<char>> LoadMap()
 {
     ifstream file("input-day14.txt");
     if (!file.is_open())
@@ -76,7 +76,7 @@ vector<vector<char>> LoadMap()
     while (getline(file, line))
     {
         bool first = true;
-        int currX, currY;
+        int currX = 0, currY = 0;
         for (sregex_iterator it(line.begin(), line.end(), expr), end; it != end; ++it)
         {
             int tgtX = stoi((*it)[1].str());
